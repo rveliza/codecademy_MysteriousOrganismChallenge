@@ -13,8 +13,16 @@ const mockUpStrand = () => {
   return newStrand;
 };
 
+// Factory function
+const pAequorFactory = (num, arr) => {
+  return {
+    spicemenNum: num,
+    dna: arr
+  }
+}
 
-
+const myDna1 = pAequorFactory(1, mockUpStrand());
+console.log(myDna1);
 
 
 
