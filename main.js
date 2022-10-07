@@ -42,17 +42,29 @@ const pAequorFactory = (spicemenNum, dna) => {
       const CGs = this.dna.filter(a => a === 'C' || a === 'G');
       const survRate = (CGs.length/15*100).toFixed(1);
       return survRate > 60 ? true : false;
+    },
+    complementStrand(){
+      const complementDNA = [];
+      this.dna.forEach(dna => {
+        if(dna === 'A') complementDNA.push('T');
+        if(dna === 'T') complementDNA.push('A');
+        if(dna === 'C') complementDNA.push('G');
+        if(dna === 'G') complementDNA.push('C');
+      });
+      return complementDNA;
     }
   }
 }
 
 // Step 3, pAequorFactory() => object 
 const myDNA = pAequorFactory(100, mockUpStrand())
-console.log(`\nStep3: \nMy DNA object is specimen: ${myDNA.spicemenNum}, DNA: ${myDNA.dna}\n\n`);
+console.log(`\nStep3: \nMy DNA object is specimen: 
+${myDNA.spicemenNum}, DNA: ${myDNA.dna}\n\n`);
 
 // Step 4, mutate() => mutated dna.
 myDNA.mutate()
-console.log(`Step 4:\nMy mutated DNA is now: ${myDNA.dna}\n\n`);
+console.log(`Step 4:\nMy mutated DNA is now: 
+${myDNA.dna}\n\n`);
 
 // Step 5, compareDNA(pAequor) => prints a message with the % the two DNA have in common.
 const randDNA = mockUpStrand();
@@ -76,3 +88,8 @@ while (instances30.length < 30) {
 
 console.log(`Step 7:\nWe have created ${instances30.length} instances of pAquor that will survive.\n\n`);
 
+
+// Step 9(a)
+const complementary = myDNA.complementStrand();
+console.log(`Step 9.1:\nThe complementary DNA is:
+${complementary}\n\n`);
