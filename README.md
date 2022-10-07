@@ -3,10 +3,10 @@
 ## Description:
 
 
-## Featurse:
+## Features:
 
 
-## Techologies:
+## Technologies:
 
 
 

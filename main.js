@@ -28,10 +28,20 @@ const pAequorFactory = (spicemenNum, dna) => {
         if (randBase15Char !== randBase) newBase += randBase;
       }
       this.dna[randBase15] = newBase;
+    },
+    compareDNA(pAequor) {
+      let counter = 0;
+      console.log(`Passed pAequor:  ${pAequor}`);
+      console.log(`Current pAequor: ${this.dna}`);
+      for(let i = 0; i < 15; i++){
+        if(pAequor[i] === this.dna[i]) counter += 1;
+      }
+      console.log(`There is a ${(counter/15*100).toFixed(1)}% of common DNA's`)
     }
   }
 }
 
+const randDNA = mockUpStrand();
 const myDna1 = pAequorFactory(1, mockUpStrand());
-
+myDna1.compareDNA(randDNA);
 
