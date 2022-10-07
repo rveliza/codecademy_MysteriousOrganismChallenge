@@ -46,7 +46,15 @@ const pAequorFactory = (spicemenNum, dna) => {
   }
 }
 
-const randDNA = mockUpStrand();
-const myDna1 = pAequorFactory(1, mockUpStrand());
-myDna1.compareDNA(randDNA);
-console.log(myDna1.willLikelySurvive())
+
+const instances30 = [];
+let id = 101;
+while (instances30.length < 30) {
+  const dnaRand = pAequorFactory(id, mockUpStrand());
+  if (dnaRand.willLikelySurvive()) {
+    instances30.push(dnaRand.dna);
+    id++;
+  };
+}
+
+console.log(instances30.length)
