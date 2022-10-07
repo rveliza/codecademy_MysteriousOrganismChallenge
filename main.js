@@ -46,15 +46,33 @@ const pAequorFactory = (spicemenNum, dna) => {
   }
 }
 
+// Step 3, pAequorFactory() => object 
+const myDNA = pAequorFactory(100, mockUpStrand())
+console.log(`\nStep3: \nMy DNA object is specimen: ${myDNA.spicemenNum}, DNA: ${myDNA.dna}\n\n`);
 
+// Step 4, mutate() => mutated dna.
+myDNA.mutate()
+console.log(`Step 4:\nMy mutated DNA is now: ${myDNA.dna}\n\n`);
+
+// Step 5, compareDNA(pAequor) => prints a message with the % the two DNA have in common.
+const randDNA = mockUpStrand();
+console.log('Step 5:');
+myDNA.compareDNA(randDNA);
+
+// Step 6, willLikelySurvive() => return true if survival rate > 60%
+const willSurvive = myDNA.willLikelySurvive();
+console.log(`\n\nStep 6:\nThe odds for my DNA are to survive? ${willSurvive}\n\n`);
+
+// Step 7, Create 30 instaces with >  60% of survival rate.
 const instances30 = [];
 let id = 101;
 while (instances30.length < 30) {
   const dnaRand = pAequorFactory(id, mockUpStrand());
   if (dnaRand.willLikelySurvive()) {
     instances30.push(dnaRand.dna);
-    id++;
+    id++
   };
 }
 
-console.log(instances30.length)
+console.log(`Step 7:\nWe have created ${instances30.length} instances of pAquor that will survive.\n\n`);
+
