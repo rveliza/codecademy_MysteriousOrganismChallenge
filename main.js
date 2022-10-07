@@ -37,6 +37,11 @@ const pAequorFactory = (spicemenNum, dna) => {
         if(pAequor[i] === this.dna[i]) counter += 1;
       }
       console.log(`There is a ${(counter/15*100).toFixed(1)}% of common DNA's`)
+    },
+    willLikelySurvive() {
+      const CGs = this.dna.filter(a => a === 'C' || a === 'G');
+      const survRate = (CGs.length/15*100).toFixed(1);
+      return survRate > 60 ? true : false;
     }
   }
 }
@@ -44,4 +49,4 @@ const pAequorFactory = (spicemenNum, dna) => {
 const randDNA = mockUpStrand();
 const myDna1 = pAequorFactory(1, mockUpStrand());
 myDna1.compareDNA(randDNA);
-
+console.log(myDna1.willLikelySurvive())
