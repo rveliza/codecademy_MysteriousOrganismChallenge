@@ -14,17 +14,24 @@ const mockUpStrand = () => {
 };
 
 // Factory function
-const pAequorFactory = (num, arr) => {
+const pAequorFactory = (spicemenNum, dna) => {
   return {
-    spicemenNum: num,
-    dna: arr
+    spicemenNum,
+    dna,
+    mutate() {
+      const randBase15 = Math.floor(Math.random() * 16);
+      const randBase15Char = dna[randBase15];
+      let newBase ="";
+
+      while (!newBase) {
+        let randBase = returnRandBase();
+        if (randBase15Char !== randBase) newBase += randBase;
+      }
+      this.dna[randBase15] = newBase;
+    }
   }
 }
 
 const myDna1 = pAequorFactory(1, mockUpStrand());
-console.log(myDna1);
-
-
-
 
 
